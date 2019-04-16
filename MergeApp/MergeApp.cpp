@@ -5,7 +5,7 @@
 ///<summary>
 ///prototypes
 ///</summary>
-std::vector<int> sort(std::vector<int>, size_t, size_t);
+std::vector<int> sort(std::vector<int>&, size_t, size_t);
 void merge(std::vector<int>&, size_t, size_t, size_t);
 
 int main() {
@@ -16,7 +16,7 @@ int main() {
 	return EXIT_SUCCESS;
 }
 
-std::vector<int> sort(std::vector<int> data, size_t lowerBound, size_t upperBound) {
+std::vector<int> sort(std::vector<int> &data, size_t lowerBound, size_t upperBound) {
 	if (lowerBound < upperBound - 1) {
 		size_t halfBound = (size_t)std::trunc((lowerBound + upperBound) / 2);
 		sort(data, lowerBound, halfBound);
@@ -38,8 +38,8 @@ void merge(std::vector<int> &data, size_t lowerBound, size_t halfdBound, size_t 
 	int *lBuffer = new int[lSize];
 	int *rBuffer = new int[rSize];
 	
-	std::copy(&data[lowerBound], &data[halfdBound], lBuffer);
-	std::copy(&data[halfdBound + 1], &data[upperBound], rBuffer);
+	std::copy(data.begin() + lowerBound, data.begin() + (halfdBound + 1), lBuffer);
+	std::copy(data.begin() + (halfdBound + 1), data.begin() + (upperBound + 1), rBuffer);
 	
 	size_t i, j, k;
 	for (i = 0, j = 0, k = 0; i < lSize && j < rSize; k++) {
