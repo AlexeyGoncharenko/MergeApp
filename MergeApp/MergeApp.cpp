@@ -26,11 +26,9 @@ std::vector<int> sortArray(const std::vector<int> &data, size_t lowerBound, size
 	}
 }
 
-/*	
-	Первичная декомпозиция рекурсивным методом блока данных до размера 2,
-	последующая сортировка смежных элементов каждой из отсортированных частей [lowerBound, halfBound], [halfBound + 1, upperBound]
-	с передачей управления функции merge для окончательной сортировки на каждом этапе декомпозиции входного блока данных.
- */
+// РџРµСЂРІРёС‡РЅР°СЏ РґРµРєРѕРјРїРѕР·РёС†РёСЏ СЂРµРєСѓСЂСЃРёРІРЅС‹Рј РјРµС‚РѕРґРѕРј Р±Р»РѕРєР° РґР°РЅРЅС‹С… РґРѕ СЂР°Р·РјРµСЂР° 2,
+// РїРѕСЃР»РµРґСѓСЋС‰Р°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР° СЃРјРµР¶РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РєР°Р¶РґРѕР№ РёР· РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹С… С‡Р°СЃС‚РµР№ [lowerBound, halfBound], [halfBound + 1, upperBound]
+// СЃ РїРµСЂРµРґР°С‡РµР№ СѓРїСЂР°РІР»РµРЅРёСЏ С„СѓРЅРєС†РёРё merge РґР»СЏ РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅРѕР№ СЃРѕСЂС‚РёСЂРѕРІРєРё РЅР° РєР°Р¶РґРѕРј СЌС‚Р°РїРµ РґРµРєРѕРјРїРѕР·РёС†РёРё РІС…РѕРґРЅРѕРіРѕ Р±Р»РѕРєР° РґР°РЅРЅС‹С….
 void sort(std::vector<int>& data, size_t lowerBound, size_t upperBound) {
 	if (lowerBound < upperBound - 1) {
 		size_t halfBound = (size_t)std::trunc((lowerBound + upperBound) / 2);
@@ -47,7 +45,7 @@ void sort(std::vector<int>& data, size_t lowerBound, size_t upperBound) {
 }
 
 void merge(std::vector<int> &data, size_t lowerBound, size_t halfdBound, size_t upperBound) {
-	// Выделение дополнительного объема памяти для выполнения сортировки.
+	// Р’С‹РґРµР»РµРЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РѕР±СЉРµРјР° РїР°РјСЏС‚Рё РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё.
 	size_t lSize = (halfdBound - lowerBound) + 1;
 	size_t rSize = (upperBound - halfdBound);
 	std::vector<int> lBuffer(lSize);
