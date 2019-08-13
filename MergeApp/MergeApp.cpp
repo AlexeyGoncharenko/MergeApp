@@ -1,6 +1,7 @@
 #include "pch.h"
 #include <iostream>
 #include <vector>
+#include <string>
 
 std::vector<int> sortArray(const std::vector<int>&, size_t, size_t);
 void sort(std::vector<int>&, size_t, size_t);
@@ -25,9 +26,11 @@ std::vector<int> sortArray(const std::vector<int> &data, size_t lowerBound, size
 	}
 }
 
-// Первичная декомпозиция рекурсивным методом блока данных до размера 2,
-// последующая сортировка смежных элементов каждой из отсортированных частей [lowerBound, halfBound], [halfBound + 1, upperBound]
-// с передачей управления функции merge для окончательной сортировки на каждом этапе декомпозиции входного блока данных.
+/*	
+	Первичная декомпозиция рекурсивным методом блока данных до размера 2,
+	последующая сортировка смежных элементов каждой из отсортированных частей [lowerBound, halfBound], [halfBound + 1, upperBound]
+	с передачей управления функции merge для окончательной сортировки на каждом этапе декомпозиции входного блока данных.
+ */
 void sort(std::vector<int>& data, size_t lowerBound, size_t upperBound) {
 	if (lowerBound < upperBound - 1) {
 		size_t halfBound = (size_t)std::trunc((lowerBound + upperBound) / 2);
