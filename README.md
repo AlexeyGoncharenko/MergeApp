@@ -1,0 +1,2 @@
+# MergeApp
+Merge sorting algorithm.
